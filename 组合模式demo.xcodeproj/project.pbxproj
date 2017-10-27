@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F929A7D1FA30C09009AE811 /* Component.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F929A7C1FA30C09009AE811 /* Component.m */; };
+		4F929A811FA30CCC009AE811 /* Composite.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F929A801FA30CCC009AE811 /* Composite.m */; };
+		4F929A841FA30D51009AE811 /* Leaf.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F929A831FA30D51009AE811 /* Leaf.m */; };
 		677859401FA230B500FA7BED /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6778593F1FA230B500FA7BED /* AppDelegate.m */; };
 		677859431FA230B500FA7BED /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 677859421FA230B500FA7BED /* ViewController.m */; };
 		677859461FA230B500FA7BED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 677859441FA230B500FA7BED /* Main.storyboard */; };
@@ -22,6 +25,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4F929A7B1FA30C09009AE811 /* Component.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Component.h; sourceTree = "<group>"; };
+		4F929A7C1FA30C09009AE811 /* Component.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Component.m; sourceTree = "<group>"; };
+		4F929A7F1FA30CCC009AE811 /* Composite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Composite.h; sourceTree = "<group>"; };
+		4F929A801FA30CCC009AE811 /* Composite.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Composite.m; sourceTree = "<group>"; };
+		4F929A821FA30D51009AE811 /* Leaf.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Leaf.h; sourceTree = "<group>"; };
+		4F929A831FA30D51009AE811 /* Leaf.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Leaf.m; sourceTree = "<group>"; };
 		6778593B1FA230B500FA7BED /* 组合模式demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "组合模式demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6778593E1FA230B500FA7BED /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6778593F1FA230B500FA7BED /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -60,6 +69,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4F929A781FA30B90009AE811 /* 不用组合模式 */ = {
+			isa = PBXGroup;
+			children = (
+				677859541FA2310000FA7BED /* Basic Class */,
+				677859611FA2310000FA7BED /* ConcreteClass */,
+			);
+			path = "不用组合模式";
+			sourceTree = "<group>";
+		};
+		4F929A791FA30BBE009AE811 /* 组合模式 */ = {
+			isa = PBXGroup;
+			children = (
+				4F929A7A1FA30BDC009AE811 /* Basic class */,
+				4F929A7E1FA30C98009AE811 /* ConcreteClass */,
+			);
+			path = "组合模式";
+			sourceTree = "<group>";
+		};
+		4F929A7A1FA30BDC009AE811 /* Basic class */ = {
+			isa = PBXGroup;
+			children = (
+				4F929A7B1FA30C09009AE811 /* Component.h */,
+				4F929A7C1FA30C09009AE811 /* Component.m */,
+			);
+			path = "Basic class";
+			sourceTree = "<group>";
+		};
+		4F929A7E1FA30C98009AE811 /* ConcreteClass */ = {
+			isa = PBXGroup;
+			children = (
+				4F929A7F1FA30CCC009AE811 /* Composite.h */,
+				4F929A801FA30CCC009AE811 /* Composite.m */,
+				4F929A821FA30D51009AE811 /* Leaf.h */,
+				4F929A831FA30D51009AE811 /* Leaf.m */,
+			);
+			path = ConcreteClass;
+			sourceTree = "<group>";
+		};
 		677859321FA230B500FA7BED = {
 			isa = PBXGroup;
 			children = (
@@ -79,8 +126,8 @@
 		6778593D1FA230B500FA7BED /* 组合模式demo */ = {
 			isa = PBXGroup;
 			children = (
-				677859541FA2310000FA7BED /* Basic Class */,
-				677859611FA2310000FA7BED /* ConcreteClass */,
+				4F929A791FA30BBE009AE811 /* 组合模式 */,
+				4F929A781FA30B90009AE811 /* 不用组合模式 */,
 				6778593E1FA230B500FA7BED /* AppDelegate.h */,
 				6778593F1FA230B500FA7BED /* AppDelegate.m */,
 				677859411FA230B500FA7BED /* ViewController.h */,
@@ -178,7 +225,7 @@
 				TargetAttributes = {
 					6778593A1FA230B500FA7BED = {
 						CreatedOnToolsVersion = 9.0;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -219,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6778596B1FA2310000FA7BED /* ConcreteDisk.m in Sources */,
+				4F929A7D1FA30C09009AE811 /* Component.m in Sources */,
 				677859691FA2310000FA7BED /* File.m in Sources */,
 				677859431FA230B500FA7BED /* ViewController.m in Sources */,
 				6778594E1FA230B500FA7BED /* main.m in Sources */,
@@ -226,7 +274,9 @@
 				6778596D1FA2310000FA7BED /* ConcreteFolder.m in Sources */,
 				677859401FA230B500FA7BED /* AppDelegate.m in Sources */,
 				677859681FA2310000FA7BED /* Folder.m in Sources */,
+				4F929A841FA30D51009AE811 /* Leaf.m in Sources */,
 				6778596A1FA2310000FA7BED /* HardDisk.m in Sources */,
+				4F929A811FA30CCC009AE811 /* Composite.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,11 +410,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "组合模式demo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "flyho.----demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -373,11 +425,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "组合模式demo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "flyho.----demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

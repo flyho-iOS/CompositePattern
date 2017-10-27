@@ -11,6 +11,9 @@
 #import "ConcreteFolder.h"
 #import "ConcreteFile.h"
 
+#import "Composite.h"
+#import "Leaf.h"
+
 @interface ViewController ()
 
 @end
@@ -20,7 +23,51 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self no_CompositePattern];
+//    [self no_CompositePattern];
+    [self compositePattern];
+}
+
+#pragma mark - 组合模式示例
+- (void) compositePattern {
+    //d_disk 作为root
+    //吾力鹏鹏的D盘学习资料最多，我们就来剖析D盘吧...嘻嘻嘻~~wow！！！1T学习资料哦
+    Composite *d_disk = [[Composite alloc] initWithName:@"鹏鹏的D盘" andSize:1024];
+    //吾力鹏鹏真勤奋，这么多类型的学习资料
+    //这里暂且忽略中间包的n层文件夹吧
+    Composite *language_Jan = [[Composite alloc] initWithName:@"日语学习" andSize:0.5];
+    Composite *culture_Korea = [[Composite alloc] initWithName:@"韩国风俗文化" andSize:0.25];
+    //这部小电影...知道文件名叫啥不？so easy...耳熟能详！跟着蜀黍大声读“雅蠛蝶！！！”
+    Leaf *video_Jan = [[Leaf alloc] initWithName:@"やめて" andSize:0.5];
+    //其他小电影名字太辣眼睛,这里就不做详细介绍（车牌还是找吾力鹏鹏要）
+    Leaf *video_Jan1 = [[Leaf alloc] initWithName:@"小电影1" andSize:0.5];
+    Leaf *video_Jan2 = [[Leaf alloc] initWithName:@"小电影2" andSize:0.2];
+    Leaf *pic_Korea1 = [[Leaf alloc] initWithName:@"小图片1" andSize:0.02];
+    Leaf *pic_Korea2 = [[Leaf alloc] initWithName:@"小图片2" andSize:0.01];
+    //开始组装树
+    [d_disk addFile:language_Jan];
+    [d_disk addFile:culture_Korea];
+    [language_Jan addFile:video_Jan];
+    [language_Jan addFile:video_Jan1];
+    [language_Jan addFile:video_Jan2];
+    [culture_Korea addFile:pic_Korea1];
+    [culture_Korea addFile:pic_Korea2];
+    //遍历硬盘里面的各个文件（小电影）
+    NSLog(@"%@",[d_disk getInfo]);
+    [self cp_traverseSubdiretory:[d_disk getSubdirectory]];
+}
+
+- (void) cp_traverseSubdiretory:(NSArray *)directory {
+    for (id obj in directory) {
+        if ([obj isKindOfClass:[Composite class]]) {
+            Composite *folder = obj;
+            NSLog(@"%@",[folder getInfo]);
+            //递归遍历
+            [self cp_traverseSubdiretory:[folder getSubdirectory]];
+        }else{
+            Leaf *file = obj;
+            NSLog(@"%@",[file getInfo]);
+        }
+    }
 }
 
 #pragma mark - 不用组合模式示例
@@ -56,7 +103,7 @@
     for (id obj in directory) {
         if ([obj conformsToProtocol:@protocol(BranchProtocol)]) {
             id<BranchProtocol>folder = obj;
-            NSLog(@"%@",[obj getInfo]);
+            NSLog(@"%@",[folder getInfo]);
             //递归遍历
             [self traverseSubdiretory:[folder getSubdirectory]];
         }else{
